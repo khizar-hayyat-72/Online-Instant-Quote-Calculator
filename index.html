@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Custom Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  
+  <style>
+  
+/* ========= Page 1 style ================== */
+      /* Global */
+
+.center{
+              float:none;
+              margin-left:auto;
+              margin-right:auto;
+          }
+
+.btn-help{
+    background:black;
+    color:#f9aa01;
+    border-radius:5px;
+    border-color:black;
+    padding:8px;
+    font-weight:bolder;
+    width:100%;
+}
+.btn-help:hover{
+    background:#f9aa01;
+    color:black;
+}
+.price-size{
+
+    font-size:20px;
+    font-weight: 500;
+
+}
+.input-size{
+    width:100%;
+    height:35px;
+}
+/* Heading colors */
+.question-heading{
+    color:black;
+    padding:10px;
+}
+/* main */
+#main{
+    background:#f9aa01;
+    border:3px solid black;
+    /*
+    height:500px;*/
+    margin-left: auto;
+    margin-right:auto;
+    width:100%;
+    margin-top:50px;
+    /*
+    overflow:scroll;*/
+    /* Vertically centering the grid to the page */
+    /*
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  */
+}
+/* header */
+#header{
+    text-align:center;
+}
+#main-form{
+   
+}
+.table-responsive {
+    display: table;
+}
+#result{
+    background:#f9aa01;
+
+   
+}
+/* changing width of drop down*/
+.change-width{
+    width:100%;
+    height:40px;
+}
+#calculate{
+    text-align:center;
+    padding:15px;
+    padding-left:50px;
+    padding-right:50px;
+    background:black;
+    color:#f9aa01;
+    font-weight: bold;
+    border-radius:5px;
+    border-color:black;
+}
+#calculate:hover{
+    background:#f9aa01;
+    color:black;
+}
+#UK{
+    width:30px;
+    height:30px;
+    display:inline-block;
+    position:relative;
+    bottom:32px;
+    left:5px;
+}
+.red{
+    color:red;
+}
+/* pop up code */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 50%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color:#f9aa01;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+/* POP UP Code Ends Here */      
+@media screen and (max-width: 768px){
+  .box{
+    width: 100%; 
+  }
+  .popup{
+    width: 70%;
+  }
+    header h1{
+        font-size:25px;
+    }   
+}
+/* Page 1 style ends here */    
+  </style>
+    
+    
+
+    
+</head>
+    
+    <body>
+    
+    
+<div class="container">
+      <div class="row">
+          <div class="col-lg-12  center">
+             
+              
+              
+              <div id="main">
+                  
+                  <form id="main-form" action="calculation.html" method="get" onsubmit="return validate()">
+                  
+                  <table class="table  table-borderless table-responsive" align="center" >
+              
+                      <tr>
+                      
+                          <td colspan="2">
+                          <!-- header -->
+                               <header id="header">
+              
+                                 <h1>Online Instant-Quote Calculator</h1>
+              
+                               </header>
+                          
+                          </td>
+                      
+                      </tr>
+                      
+                      <!-- Question 1 -->
+                      <tr>
+                      
+                          <td colspan="2"><h3 class="question-heading">Select a size<span class="red">*</span></h3></td>
+                          
+                          
+                      </tr>
+                      <tr>
+                          
+                          <td>
+                          
+                              <select class="change-width" id="question-1" name="question-1" required>
+                              
+                                  <option></option>
+                                  <option  value="65">Medium </option>
+                                  <option  value="75">Large </option>
+                                
+                              </select>
+                          
+                          </td>
+                          <td> <div class="box">
+                                  <a class="button" href="#popup1"> 
+                              <button type="button" class="btn-help" id="btn-help" >Help</button>
+                                      </a>
+                              </div></td>
+                          
+                          
+                          
+                      </tr>
+                   
+                      
+                      <!-- Question - 2 -->
+                      <tr>
+                      
+                          <td colspan="2"><h3 class="question-heading">How many “AdWalker” promoters?<span class="red">*</span></h3></td>
+                         
+                          
+                      </tr>
+                      
+                      
+                      <tr>
+                      
+                         <td colspan="2">
+                          
+                              <select class="change-width" id="question-2" name="question-2" required>
+                                  <option></option>
+                                   <option value="1">1</option>
+                                  <option  value="2">2</option>
+                                  <option  value="3">3</option>
+                                  <option  value="4">4</option>
+                                  <option  value="5">5</option>
+                                  <option  value="6">6</option>
+                                  <option  value="7">7</option>
+                                  <option  value="8">8</option>
+                                  <option  value="9">9</option>
+                                  <option  value="10">10+</option>
+                               
+                              </select>
+                          
+                          
+                          </td>
+                        
+                      </tr>
+                     
+                      
+                      <!-- Question - 3 -->
+                      
+                      <tr>
+                      
+                          <td colspan="2"><h3 class="question-heading">How many hours?<span class="red">*</span></h3></td>
+                      
+                      </tr>
+                      
+                      <tr>
+                      
+                          <td colspan="2">
+                          
+                               <select class="change-width" id="question-3" name="question-3" required>
+                                  <option></option>
+                                    <option  value="1">1</option>
+                                  <option  value="2">2</option>
+                                  <option  value="3">3</option>
+                                  <option  value="4">4</option>
+                                  <option  value="5">5</option>
+                                   <option  value="6">6</option>
+                                   <option  value="7">7</option>
+                                   <option  value="8">8+</option>
+                                  
+
+                                  
+                              </select>
+                          
+                          </td>
+                          
+                      
+                      </tr>
+                      
+                     
+                      
+                      <!-- Question - 4 -->
+                      
+                     
+                      
+                     
+                      <tr>
+                      
+                          <td ><h3 class="question-heading">Do you require leaflet/card distribution?<span class="red">*</span></h3></td>
+                      
+                      </tr>
+
+                      <tr>
+                      
+                          <td colspan="2">
+                          
+                              <select class="change-width" id="question-4" name="question-4" required>
+                                  <option></option>
+                                  <option  value="yes">Yes</option>
+                                  <option  value="no">No</option>
+                               
+                              </select>
+                          
+                          </td>
+                      
+                      </tr>
+                      
+                      
+                      <!-- other details -->
+                      
+                      <tr>
+                      
+                          <td><h4 >Full Name<span class="red">*</span></h4></td>
+                          
+                      
+                      </tr>
+                      <tr>
+                      
+                          <td colspan="2"><input type="text" id="name" name="name" class = "input-size" autocomplete="off" required></td>
+                      
+                      </tr>
+                      <tr>
+                      
+                          <td><h4 >Company Name </h4></td>
+                      
+                      </tr>
+                      <tr>
+                      
+                          <td colspan="2"><input type="text" id="company" class = "input-size" autocomplete="off"></td>
+                      
+                      </tr>
+                      
+                      <tr>
+                      
+                          <td><h4 >Email address<span class="red">*</span></h4></td>
+                          
+                      
+                      </tr>
+                      <tr>
+                      
+                          <td colspan="2"><input type="email" id="email" class = "input-size" autocomplete="off" required></td>
+                      
+                      </tr>
+                      <tr>
+                      
+                          <td><h4 >Number<span class="red">*</span></h4></td>
+                          
+                      
+                      </tr>
+                      <tr>
+                      
+                          <td colspan="2">
+                          
+                             
+                              <input type="text" id="number" placeholder="Use +44 UK, England-Country Code" value="+44" maxlength="13" class = "input-size" style="padding-left:40px;" autocomplete="off" required>
+                               <img src="UK%20Flag.png" alt="UK" id="UK" title="United Kingdom:+44">
+                              <br/>
+                              <span id="validNumber"></span>
+                          
+                          </td>
+                      
+                      </tr>
+                     
+                       
+                    <tr>
+                    
+                        <td colspan="2" align="center">
+                        
+                            <button type="submit" id="calculate">CALCULATE</button>
+                        
+                        </td>
+                        
+                    </tr>
+                      
+                  
+                  </table>
+                 </form>
+            
+              </div>
+              
+              
+             
+              
+          </div>
+      </div>
+  </div>
+
+        
+        <!-- Pop UP code -->
+        <div id="popup1" class="overlay">
+                  <div class="popup">
+                 <h2>Help</h2>
+                 <a class="close" href="#">&times;</a>
+                 <div class="content">
+           Medium Size = 1170 x 602 mm, Large Size = 2030 x 602 mm
+                 </div>
+    </div>
+</div>
+
+
+        
+        <script>
+        
+            //applying some validation to number.
+            function validate(){
+                
+                var num = document.getElementById("number");
+                
+                if(num.value.length < 13){
+                
+                    
+                    //this error message will show whenever user enters an invalid number.
+                    var valid = document.getElementById("validNumber");
+                    valid.innerHTML = "x Please enter a valid number";
+                    valid.style.fontSize = "20px";
+                    valid.style.padding = "10px";
+                    valid.style.backgroundColor = "Red";
+                    valid.style.color = "white";
+                    
+                    
+                    //it will not allow the form to submit.
+                    return false;
+                }
+                
+                if(num.value.length == "13"){
+                //this regular expression matches that whether the entered number is in valid format.    
+                    var regExN = /^[+][0-9]+$/;
+                    
+                    if(!regExN.test(num.value)){
+
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+                }
+                else{
+                    return true;
+                }
+            }
+        
+        </script>
+        
+   
+        
+        
+       
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
+
+

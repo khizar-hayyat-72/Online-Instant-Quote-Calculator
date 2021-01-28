@@ -1,0 +1,185 @@
+/* Global */
+
+.center{
+              float:none;
+              margin-left:auto;
+              margin-right:auto;
+          }
+
+.btn-help{
+    background:black;
+    color:#f9aa01;
+    border-radius:5px;
+    border-color:black;
+    padding:8px;
+    font-weight:bolder;
+    width:100%;
+}
+.btn-help:hover{
+    background:#f9aa01;
+    color:black;
+}
+
+
+.price-size{
+
+    font-size:20px;
+    font-weight: 500;
+
+}
+
+.input-size{
+    width:100%;
+    height:35px;
+}
+
+/* Heading colors */
+
+.question-heading{
+    color:black;
+    padding:10px;
+}
+
+
+/* main */
+
+#main{
+    background:#f9aa01;
+    border:3px solid black;
+    /*
+    height:500px;*/
+    margin-left: auto;
+    margin-right:auto;
+    width:100%;
+    margin-top:50px;
+    /*
+    overflow:scroll;*/
+    /* Vertically centering the grid to the page */
+    /*
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  */
+}
+
+/* header */
+
+#header{
+    text-align:center;
+}
+
+#main-form{
+   
+}
+
+.table-responsive {
+    display: table;
+}
+#result{
+    background:#f9aa01;
+
+   
+}
+/* changing width of drop down*/
+
+.change-width{
+    width:100%;
+    height:40px;
+    
+}
+#calculate{
+    text-align:center;
+    padding:15px;
+    padding-left:50px;
+    padding-right:50px;
+    background:black;
+    color:#f9aa01;
+    font-weight: bold;
+    border-radius:5px;
+    border-color:black;
+}
+#calculate:hover{
+    background:#f9aa01;
+    color:black;
+}
+
+#UK{
+    width:30px;
+    height:30px;
+    display:inline-block;
+    position:relative;
+    bottom:32px;
+    left:5px;
+}
+.red{
+    color:red;
+}
+
+/* pop up code */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 50%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color:#f9aa01;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 768px){
+  .box{
+    width: 100%;
+   
+  }
+  .popup{
+    width: 70%;
+  }
+    header h1{
+        font-size:25px;
+    }
+    
+}
